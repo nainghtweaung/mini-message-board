@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+  </head>
+  <body>
+    <a
+      style="
+        padding: 10px;
+        border: 1px solid black;
+        text-decoration: none;
+        background-color: silver;
+      "
+      href="/new"
+      >Add new message</a
+    >
+    <div>
+      <ul>
+        <% messages.map((message,index) => { %>
+        <li><%= message.text %></li>
+        <li><%= message.user %></li>
+        <li><%= message.added %></li>
+        <a href="messages/<%= index %>">link</a>
+        <br />
+        <% }) %>
+      </ul>
+      <button></button>
+    </div>
+  </body>
+</html>
