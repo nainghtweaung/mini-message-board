@@ -3,7 +3,7 @@ const controller = require('../controllers/newMessageController');
 
 const router = Router();
 
-router.get('/', controller.newMessage);
-router.post('/', controller.addMessage);
+router.get('/', controller.getNewMessage);
+router.post('/', controller.postNewMessage);
 
 module.exports = router;

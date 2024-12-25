@@ -19,14 +19,13 @@
     <div>
       <ul>
         <% messages.map((message,index) => { %>
-        <li><%= message.text %></li>
-        <li><%= message.user %></li>
-        <li><%= message.added %></li>
+        <li><%= message.message %></li>
+        <li><%= message.user_name %></li>
+        <li><%= message.date %></li>
         <a href="messages/<%= index %>">link</a>
         <br />
         <% }) %>
       </ul>
-      <button></button>
     </div>
   </body>
 </html>

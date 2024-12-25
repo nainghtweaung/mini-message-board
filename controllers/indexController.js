@@ -1,12 +1,13 @@
-const messages = require('../models/messages');
+const db = require('../db/queries');
 
 module.exports = {
-  getAllMessages: (req, res) => {
+  getAllMessages: async (req, res) => {
+    const messages = await db.getAllMessages();
     res.render('index', { messages });
   },
-  getMessage: (req, res) => {
-    console.log(req.params.index);
-    const index = req.params.index;
-    res.render('message', { message: messages[index] });
+  getMessage: async (req, res) => {
+    const id = parseInt(req.params.id);
+    const message = await db.getMessageById(id);
+    res.render('message', { message });
   },
 };

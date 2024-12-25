@@ -1,16 +1,12 @@
-const messages = require('../models/messages');
+const db = require('../db/queries');
 
 module.exports = {
-  newMessage: (req, res) => {
+  getNewMessage: (req, res) => {
     res.render('form');
   },
-  addMessage: (req, res) => {
+  postNewMessage: async (req, res) => {
     const messageDetails = req.body;
-    messages.push({
-      text: messageDetails.messageText,
-      user: messageDetails.author,
-      added: new Date(),
-    });
+    await db.postNewMessage(messageDetails);
     res.redirect('/');
   },
 };
